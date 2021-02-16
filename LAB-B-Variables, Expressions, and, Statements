@@ -1,0 +1,61 @@
+#Felix Nathanael Tjahjono - 71200578
+#Prodi Informatika - Universitas Kristen Duta Wacana
+
+'''
+   Dengan bekal uang Rp 1.000.000, Anita ingin mentraktir ketiga temannya di restoran all-you-can-eat. Di sana tersedia dua paket yaitu Regular dan Premium yang berharga Rp 150.000 dan
+Rp 200.000. Anita dan satu temannya memilih paket Premium sedangkan sisanya memilih paket Regular. Anita dan teman-temannya makan sepuasnya namun menyisakan makanan seberat 200 gram.
+Padahal, peraturan di restoran mengatakan bahwa setiap 100 gram makanan yang tersisa akan dikenai denda sebesar Rp 50.000. Anita pun menuruti peraturan tersebut dan lalu membayar untuk
+makanan dan dendanya. Untungnya, hari itu terdapat promo diskon sebesar 20%. Promo tersebut berlaku pada makanan dan denda. Setelah membayar makanan, Anita mendapatkan nota yang
+memiliki keterangan meliputi subtotal (total harga sebelum pajak), pajak (8%), dan total (total harga setelah pajak). Saat hendak pergi, Anita memberikan tips untuk pelayan sebesar 10%
+dari uang kembalian. Berapakah sisa uang Anita?
+
+awal = uang awal Anita
+reg = jumlah orang yang memesan paket Regular
+pre = jumlah orang yang memesan paket Premium
+denda = berat sisa makanan
+promo = presentase diskon
+pajak = presentase pajak
+tips = presentase tips
+'''
+
+'''
+Input:
+awal = 1000000
+reg = 2
+pre = 2
+denda = 200
+promo = 20
+pajak = 8
+tips = 10
+
+Proses:
+reg = total harga regular
+pre = total harga premium
+denda = total harga denda
+sub = total harga sebelum pajak
+tot = total harga setelah pajak
+akhir = sisa kembalian 
+
+Output:
+sisa uang kembalian Anita
+
+'''
+
+#Input
+awal = 1000000
+reg = 3
+pre = 1
+denda = 200
+promo = 20
+pajak = 10
+tips = 10
+#Proses
+reg = reg * 150000
+pre = pre * 200000
+denda = denda * 0.01 * 50000
+sub = (reg+pre+denda) * (100-promo) * 0.01
+tot = sub * (100+pajak) * 0.01
+akhir = awal - tot
+akhir = akhir * (100-tips) *0.01
+#Output
+print('Sisa kembalian Anita adalah Rp ', akhir)
