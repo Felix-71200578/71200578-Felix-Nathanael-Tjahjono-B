@@ -1,0 +1,67 @@
+#Felix Nathanael Tjahjono
+#71200578 - Universitas Kristen Duta Wacana
+'''
+    Buatlah suatu program kalkulator yang dapat mengkalkulasi BMI (Body Mass Index) seseorang. Program harus menyediakan pilihan satuan tinggi berupa cm atau inch dan
+pilihan satuan berat berupa kg atau pon. Selanjutnya, program dapat menunjukkan hasil BMI dan mengkategorikan tipe BMI seseorang.
+
+Tipe BMI bisa dikategorikan sebagai berikut:
+Underweight : < 18.5
+Normal      : 18.5 - 24.9
+Overweight  : 25 - 29.9
+Obese       : >= 30
+
+Rumus BMI:
+BMI = berat(kg) / tinggi(m)^2
+
+Referensi:
+https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/english_bmi_calculator/bmi_calculator.html
+https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html
+'''
+
+'''
+Input:
+choice = pilihan satuan
+height = tinggi pengguna (cm/inci)
+weight = berat pengguna (kg/pon)
+
+Proses:
+choice = menentukan cabang
+height = tinggi pengguna (m)
+weight = berat pengguna (kg)
+bmi = kalkulasi bmi dan kategori bmi
+
+Output:
+nilai bmi dan kategori bmi pengguna
+'''
+print('-----Kalkulator BMI (Body Mass Index)-----')
+
+print('Pilih satuan tinggi!')
+print('1. cm')
+print('2. inci')
+choice = int(input('Masukkan pilihan anda: '))
+if choice == 1:
+    height = float(input('Masukkan tinggi anda(cm): '))
+    height = height / 100
+elif choice == 2:
+    height = float(input('Masukkan tinggi anda(inci): '))
+    height = height / 39.37
+
+print('Pilih satuan berat!')
+print('1. kg')
+print('2. pon')
+choice = int(input('Masukkan pilihan anda: '))
+if choice == 1:
+    weight = float(input('Masukkan tinggi anda(kg): '))
+elif choice == 2:
+    weight = float(input('Masukkan tinggi anda(pon): '))
+    weight = weight / 2.205
+
+bmi = weight / height**2
+if bmi < 18.5:
+    print('BMI anda ', round(bmi,1), '. Anda termasuk Underweight.')
+elif 18.5 <= bmi < 25:
+    print('BMI anda ', round(bmi,1), '. Anda termasuk Normal.')
+elif 25 <= bmi < 30:
+    print('BMI anda ', round(bmi,1), '. Anda termasuk Overweight.')
+elif bmi >= 30:
+    print('BMI anda ', round(bmi,1), '. Anda termasuk Obesitas.')
