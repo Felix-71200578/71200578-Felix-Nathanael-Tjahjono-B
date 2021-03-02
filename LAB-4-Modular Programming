@@ -1,0 +1,82 @@
+
+#Felix Nathanael Tjahjono
+#71200578 - Universitas Kristen Duta Wacana
+'''
+    Terdapat sebuah usaha sablon kaos di mana usaha tersebut akan menyediakan katalog harga berbentuk program. Di dalam katalog, pelanggang akan mendapatkan pilihan-pilihan
+yaitu pada warna tinta, ukuran, dan bahan baju. Di setiap pilihan tersebut, terdapat pula pilihan-pilihan lagi beserta harga seperti berikut ini. Untuk warna tinta, 
+terdapat hitam (Rp 50.000) dan putih (Rp 40.000). Untuk ukuran, terdapat logo (Rp. 5000), A5 (Rp 10.000), A4 (Rp 15.000), dan A3 (Rp 20.000). Untuk bahan, terdapat cotton 
+combed (Rp. 15.000) dan cotton carded (Rp 10.000)
+'''
+'''
+Input:
+option = warna / ukuran / bahan
+color = hitam / putih
+size = logo / a5 / a4 / a3
+material = combed / carded
+
+Proses:
+def pilihan(option): warna() / ukuran() / bahan()
+def warna(): 
+def ukuran(): 
+def bahan(): 
+def harga_warna(): 
+def harga_ukuran(): 
+def harga_bahan():
+
+Output:
+Dikenai biaya sebesar Rp. ... 
+
+'''
+
+def harga_warna(color):
+    if color == 'hitam': color = 50000
+    elif color == 'putih': color = 40000
+    return color
+
+def harga_ukuran(size):
+    if size == 'logo': size = 5000
+    elif size == 'a5': size = 10000
+    elif size == 'a4': size = 15000
+    elif size == 'a3': size = 20000
+    return size
+
+def harga_bahan(material):
+    if material == 'combed': material = 15000
+    elif material == 'carded' : material = 10000
+    return material
+
+def warna():
+    print('Daftar Warna')
+    print('Hitam')
+    print('Putih')
+    color = str.lower(input('Masukkan pilihan anda: '))
+    print('Dikenai biaya sebesar Rp. ',harga_warna(color))
+
+def ukuran():
+    print('Daftar Ukuran')
+    print('Logo')
+    print('A5')
+    print('A4')
+    print('A3')
+    size = str.lower(input('Masukkan pilihan anda: '))
+    print('Dikenai biaya sebesar Rp. ',harga_ukuran(size))
+
+def bahan():
+    print('Daftar Bahan')
+    print('Combed')
+    print('Carded')
+    material = str.lower(input('Masukkan pilihan anda: '))
+    print('Dikenai biaya sebesar Rp. ',harga_bahan(material))
+
+def pilihan(option):
+    if option == 'warna': warna()
+    elif option == 'ukuran': ukuran()
+    elif option == 'bahan': bahan()
+
+print('-------Katalog Harga Sablon Baju--------')
+print('Warna')
+print('Ukuran')
+print('Bahan')
+option = str.lower(input('Masukkan pilihan anda: '))
+pilihan(option)
+
