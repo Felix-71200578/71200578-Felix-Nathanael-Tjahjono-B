@@ -1,0 +1,69 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristen Duta Wacana
+
+'''
+    Sebuah restoran Fast Food ingin membuat sebuah menu makanan dan minuman dalam bentuk program. Di dalam menu makanan, terdapat Ayam (Rp 50000), Burger (Rp 40000), dan
+Kentang Goreng (Rp. 20000). Sedangkan di dalam menu minuman, terdapat Fanta (Rp. 11000), Coca-Cola (Rp. 12000), dan Sprite (Rp 10000). Di samping itu, program juga terdapat
+pilihan untuk keluar sekaligus menghitung total biaya pesanan. Buatlah program tersebut!
+'''
+'''
+Input:
+pilihan = 1,2,3
+pesan   = 1,2,3
+jumlah  = jumlah porsi yang ingin dipesan
+makanan = ['Ayam', 'Burger', 'Kentang Goreng']
+makanan_harga = [50000, 40000,20000]
+minuman = ['Fanta', 'Coca-Cola', 'Sprite']
+minuman_harga = [11000, 12000, 10000]
+biaya = 0
+n = 1
+
+Proses:
+while True
+if pilihan == 1,2,3
+for i in makanan/minuman
+biaya = biaya + makanan_harga[pesan-1]*jumlah
+
+Output:
+Menu Awal
+Menu Makanan 
+Menu Minuman
+Pesanan ... porsi ... berhasil Anda pesan!
+Terima kasih! Total biaya anda sebesar....
+'''
+
+makanan = ['Ayam', 'Burger', 'Kentang Goreng']
+makanan_harga = [50000, 40000,20000]
+minuman = ['Fanta', 'Coca-Cola', 'Sprite']
+minuman_harga = [11000, 12000, 10000]
+biaya = 0
+
+while True:
+    print('---------= Menu Restoran Fast Food =------------')
+    print('1. Makanan')
+    print('2. Minuman')
+    print('3. Selesai')
+    pilihan = int(input('Masukkan pilihan Anda: '))
+    if pilihan == 1:
+        print('--------= Menu Makanan =---------')
+        n = 1
+        for i in makanan:
+            print(n,'. ',i,'.'*(30-len(i)),makanan_harga[n-1], sep='')
+            n+=1
+        pesan = int(input('Masukkan pilihan makanan yang ingin Anda pesan: '))
+        jumlah = int(input('Berapa banyak porsi yang ingin Anda pesan: '))
+        print('Pesanan',jumlah,'porsi',makanan[pesan-1],'berhasil anda pesan!')
+        biaya = biaya + makanan_harga[pesan-1]*jumlah
+    elif pilihan == 2:
+        print('--------= Menu Minuman =---------')
+        n = 1
+        for i in minuman:
+            print(n,'. ',i,'.'*(30-len(i)),minuman_harga[n-1],sep='')
+            n+=1
+        pesan = int(input('Masukkan pilihan minuman yang ingin Anda pesan: '))
+        jumlah = int(input('Berapa banyak porsi yang ingin Anda pesan: '))
+        print('Pesanan',jumlah,'porsi',makanan[pesan-1],'berhasil anda pesan!')
+        biaya = biaya + minuman_harga[pesan-1]*jumlah
+    elif pilihan == 3:
+        print('Terima kasih! Total biaya Anda sebesar Rp.',biaya)
+        break
