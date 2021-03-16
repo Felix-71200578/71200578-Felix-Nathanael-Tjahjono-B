@@ -1,0 +1,55 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristen Duta Wacana
+
+'''
+    Suatu taman hiburan ingin membuat program yang dapat membuat daftar antrian untuk wahana roller coaster-nya. Di mana antrian tidak memperbolehkan penumpang dengan
+tinggi badan di bawah 110 cm dan berat badan di atas 100 kg. Sebagai ketentuan program, antrian juga memperhatikan apakah penumpang memiliki membership. Apabila penumpang 
+tersebut memiliki membership, penumpang tersebut ditempatkan antrian paling depan. Selebihnya, apabila penumpang lain juga memiliki membership, penumpang tersebut 
+ditempatkan sebelum penumpang lain yang memiliki membership yang ada di depannya. Buatlah program tersebut!
+'''
+'''
+Input:
+name = nama penumpang
+height = tinggi badan penumpang
+weight = berat badan penumpang
+member = membership penumpang
+
+Proses:
+while
+for
+if
+insert
+append
+
+Output:
+Daftar antrian
+'Penumpang tidak diperbolehkan untuk naik roller coaster.'
+'''
+queue = 0
+queue_name = []
+while True:
+    print('------ Program Antrian Roller Coaster --------')
+    print('Ketik "daftar" untuk menampilkan daftar antrian dan "keluar" untuk keluar dari program!')
+    name = str(input('Masukkan nama penumpang: '))
+    if name == 'daftar':
+        n = 1
+        for i in queue_name:
+            print(n,'. ',i,sep='')
+            n+=1
+        continue
+    elif name == 'keluar':
+        break
+    height = int(input('Masukkan tinggi badan penumpang(cm): '))
+    weight = int(input('Masukkan tinggi badan penumpang(kg): '))
+    if height >= 110 and weight <= 100:
+        print('Apakah penumpang memiliki membership?')
+        print('1. Ya')
+        print('2. Tidak')
+        member = int(input('Masukkan pilihan anda: '))
+        if member == 1:
+            queue_name.insert(queue,name)
+            queue+=1
+        elif member == 2:
+            queue_name.append(name)
+    else:
+        print('Penumpang tidak diperbolehkan untuk naik roller coaster.')
