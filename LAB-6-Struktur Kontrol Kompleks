@@ -28,7 +28,7 @@ Daftar antrian
 queue = 0
 queue_name = []
 while True:
-    print('------ Program Antrian Roller Coaster --------')
+    print('------ Program Antrian Roller Coaster -------')
     print('Ketik "daftar" untuk menampilkan daftar antrian dan "keluar" untuk keluar dari program!')
     name = str(input('Masukkan nama penumpang: '))
     if name == 'daftar':
@@ -39,9 +39,9 @@ while True:
         continue
     elif name == 'keluar':
         break
-    height = int(input('Masukkan tinggi badan penumpang(cm): '))
-    weight = int(input('Masukkan tinggi badan penumpang(kg): '))
-    if height >= 110 and weight <= 100:
+    height = int(input('Masukkan tinggi badan penumpang: '))
+    weight = int(input('Masukkan berat badan penumpang: '))
+    if height >=110 and weight <= 100:
         print('Apakah penumpang memiliki membership?')
         print('1. Ya')
         print('2. Tidak')
