@@ -1,0 +1,47 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristen Duta Wacana
+'''Seorang sekretaris ingin membuat suatu program di mana ia dapat mendaftar singkatan nama orang. Cara penyingkatannya adalah nama terpendek dibiarkan dan nama yang lebih 
+panjang disingkat dengan cara mengambil huruf bagian depannya lalu diberikan titik. Jika seseorang hanya memiliki satu nama (tidak memiliki nama panjang) atau panjang 
+setiap namanya sama, maka nama orang tersebut tidak ada penyingkatan. Buatlah program tersebut!
+'''
+'''
+Input:
+nama = input nama / 'keluar' untuk keluar dari looping
+
+Output:
+Daftar Nama:
+1) Steven K.
+2) P. Budi
+3) A. Toni W.
+4) Joni Taro
+5) Amel
+'''
+daftar_nama = []
+susunan_nama = []
+while True:
+    nama = str(input('Masukkan nama: '))
+    if nama == 'keluar':
+        break
+    susunan_nama = nama.split()
+    if len(susunan_nama) == 1:
+        daftar_nama.append(' '.join(susunan_nama))
+    else:
+        for i in range(len(susunan_nama)-1):
+            if len(susunan_nama[i]) == len(susunan_nama[i+1]) and i+1 == len(susunan_nama)-1:
+                daftar_nama.append(' '.join(susunan_nama))
+            else:
+                hasil_nama = []
+                terpendek_nama = min(susunan_nama,key=len)
+                for i in susunan_nama:
+                    if i == terpendek_nama:
+                        hasil_nama.append(i)
+                    else:
+                        hasil_nama.append(i[0]+'.')
+                daftar_nama.append(' '.join(hasil_nama))
+                break
+
+n = 1
+for i in daftar_nama:
+    print(n,') ',i,sep='')
+    n+=1
+
