@@ -1,0 +1,37 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristen Duta Wacana
+'''
+    Seseorang menginginkan suatu program yang dapat mengenkripsi suatu kata dengan huruf kapital. Prosesnya dilakukan dengan cara mengubah setiap huruf pada 
+kata menjadi unicode lalu dihitung menggunakan rumus f(x)=(4x+17) mod 26. Hasil perhitungan yang diperoleh akan diubah menjadi huruf kapital kembali. Supaya 
+hasilnya tidak dilihat orang lain, orang tersebut menginginkan hasil tersebut tidak ditampilkan di tampilan program namun disimpan ke dalam file.
+'''
+'''
+Input: 
+pilihan = enkripsi kata atau keluar dari program
+masuk = kata yang akan dienkripsi
+
+Output:
+Hasil enkripsi berhasil dimasukkan ke dalam file...
+Program selesai...
+Hasil enkripsi kata di file .txt
+'''
+while True:
+    file = open('enkripsi.txt','a')
+    hasil = ''
+    print('==== Program Enkripsi ====')
+    print('1. Enkripsi')
+    print('2. Keluar')
+    pilihan = int(input('Masukkan pilihan: '))
+    if pilihan == 1:
+        masuk = str(input('Masukkan kata: '))
+        for i in masuk.upper():
+            unicode = ord(i)
+            hasil += chr(65 + (4*unicode+17) % 26)
+        hasil2 = 'Hasil enkripsi ' + masuk.upper() + ' adalah ' + hasil + '\n'
+        file.write(hasil2)
+        print('Hasil enkripsi berhasil dimasukkan ke dalam file...')
+    elif pilihan == 2:
+        print('Program selesai...')
+        break
+file.close()
+
