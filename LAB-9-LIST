@@ -1,0 +1,43 @@
+#Feliix Nathanael Tjajono - 71200578
+#Universitas Kristen Duta Wacana
+'''
+    Adrian diminta oleh atasannya untuk membuat data tentang produksi barang pada beberapa hari tertentu. Di data, 
+Adrian harus menuliskan kuartil bawah, median, dan kuartil atas dari produksi barang. Oleh karena itu, Adrian 
+ingin membuat sebuah program yang dapat menghitung data tersebut untuk mempermudah pekerjaannya. Buatlah program 
+di mana program tersebut berisi input berapa hari produksi barang berlangsung dan jumlah produksi barang tiap harinya.
+'''
+'''
+Input:
+hari = berapa hari produksi barang berlangsung
+jumlah = jumlah produksi barang pada hari tertentu
+
+Output:
+list data yang sudah diurutkan dari terkecil ke terbesar
+kuartil bawah
+median
+kuartil atas
+
+'''
+def kuartil(data,n):
+    n = n * 0.25
+    if len(data) % 2 ==0:
+        hasil = (data[int((len(data)+1)*n)] + data[int((len(data)+1)*n) -1]) * 0.5
+    else:
+        hasil = data[int((len(data)+1)*n + ((len(data)+1) % 5 > 0)*n - 1)]
+    return integer(hasil)
+def integer(hasil):
+    if '.0' in str(hasil):
+        return int(hasil)
+    else:
+        return hasil
+data = []
+print('==== Program Penghitung Kuartil ====')
+hari = int(input('Masukkan berapa hari produksi barang berlangsung: '))
+for i in range(1,hari+1):
+    jumlah = int(input('Masukkan jumlah produksi barang pada hari ke-' + str(i) + ': '))
+    data.append(jumlah)
+data = sorted(data)
+print(data)
+print('Kuartil Bawah: ' + str(kuartil(data,1)))
+print('Median: ' + str(kuartil(data,2)))
+print('Kuartil Atas: ' + str(kuartil(data,3)))
