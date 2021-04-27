@@ -1,0 +1,58 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristen Duta Wacana
+'''
+    Sandra merupakan pemilik dari sebuah toko buah. Dia ingin punya sebuah program yang dapat mendaftar berbagai macam 
+buah yang ada di tokonya. Di program, dia ingin bisa menambah dan menghapus buah ke dalam data serta menampilkannya. 
+Ketika membuka program lagi, dia juga ingin dapat mengakses data yang sama seperti data yang diinput di program sebelumnya. 
+'''
+'''
+buah = nama buah
+harga = harga buah
+pilihan = 1,2,3,4
+'''
+f = open('data.txt','r')
+d = dict()
+for i in f:
+    l = list(i.split())
+    d[l[0]] = l[1]
+def tambah():
+    f = open('data.txt','a')
+    buah = str.capitalize(input('Masukkan nama buah: '))
+    if buah in d:
+        print('Buah sudah ada di data')
+    else:
+        harga = int(input('Masukkan harga buah: '))
+        d[buah] = harga
+        f.write(buah + ' ' + str(harga) + '\n')
+def hapus():
+    f = open('data.txt','w')
+    buah = str.capitalize(input('Masukkan nama buah: '))
+    if buah in d:
+        d.pop(buah)
+        for i in d:
+            f.write(i + ' ' + str(d[i]) + '\n')
+    else:
+        print('Buah tidak ada di data')
+
+def tampil():
+    c = 1
+    for i in d:
+        print(str(c) + '. ' + i + ' = Rp.' + str(d[i]) + ',00')
+        c += 1
+
+while True:
+    print('==== Toko Buah ====')
+    print('1. Tambah')
+    print('2. Hapus')
+    print('3. Tampil')
+    print('4. Keluar')
+    pilihan = int(input('Masukkan pilihan: '))
+    if pilihan == 1:
+        tambah()
+    elif pilihan == 2:
+        hapus()
+    elif pilihan == 3:
+        tampil()
+    elif pilihan == 4:
+        break
+f.close()
