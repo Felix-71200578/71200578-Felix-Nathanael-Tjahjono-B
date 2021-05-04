@@ -1,0 +1,35 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristeb Duta Wacana
+'''
+    Anri sedang membuat sebuah program yang dapat mensensor kata-kata tertentu. Ia ingin programnya cukup pintar dalam mendeteksi tanda '-', '_', dan '+'
+dalam upaya untuk mengelabui sensor (contoh: m-a-k-a-n tetap dapat disensor oleh program). Selebihnya, kata-kata yang akan disensor adalah 'rokok', 'judi',
+dan 'alkohol'. Untuk pensesoran, huruf-huruf akan digantikan dengan tanda '*'. Bantu Anri membuat program tersebut!
+'''
+'''
+Input:
+kalimat = kalimat yang akan disensor
+
+Output:
+hasil kalimat setelah disensor
+'''
+
+def sensor(kalimat):
+    t1 = ('rokok','judi','alkohol')
+    t2 = ('-','_','+')
+    l = list(kalimat.split(' '))
+    c = 0
+    for i in l:
+        hasil = i.lower()
+        for i in t2:
+            hasil = hasil.replace(i,'')
+        if hasil in t1:
+            l.pop(c)
+            l.insert(c,hasil)
+        c += 1
+    kalimat = ' '.join(l)
+    for i in range(len(t1)):
+        kalimat = kalimat.replace(t1[i],'*'*len(t1[i]))
+    return kalimat
+
+kalimat = str(input('Masukkan kalimat: '))
+print('Hasil: ' + sensor(kalimat))
