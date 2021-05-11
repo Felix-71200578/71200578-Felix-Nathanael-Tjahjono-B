@@ -1,0 +1,63 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristen Duta Wacana
+'''
+    Dalam rangka mengirimkan pegawai ke Cina, Korea, dan Jepang, perusahaan tempat Susan bekerja meminta dia untuk membuat program yang dapat mendata pegawai baik yang unilingiual, 
+bilingual, ataupun multilingual terhadap bahasa nasional dari ketiga negara tersebut. Bantulah Susan dalam membuat program tersebut!
+'''
+'''
+Input:
+nama = orang yang dapat berbicara bahasa tersebut atau 'stop'
+
+Output:
+Daftar pegawai yang unilingual, bilingual, atau multilingual
+'''
+def masuk_nama():
+    l1 = ['Cina','Korea','Jepang']
+    for i in l1:
+        s = set()
+        print(i+':')
+        while True:
+            nama = str.capitalize(input('Masukkan nama: '))
+            if nama == 'Stop':
+                d[i] = s
+                break
+            s.add(nama)
+    return d
+
+def data(d):
+    l1 = list()
+    l2 = list()
+    for i in d:
+        l1.append(d[i])
+    for i in range(0,len(l1)):
+        try:
+            l2.append(l1[i].intersection(l1[i+1]))
+        except:
+            l2.append(l1[i].intersection(l1[0]))
+    multi = set.intersection(*map(set,l1))
+    bi = set.union(*map(set,l2)) - multi
+    uni = set.union(*map(set,l1)) - (bi|multi)
+
+    if uni == set():
+        uni = ('Tidak Ada',)
+    if bi == set():
+        bi = ('Tidak Ada',)
+    if multi == set():
+        multi = ('Tidak Ada',)
+    return uni,bi,multi
+d = dict()
+
+masuk_nama()
+
+uni, bi, multi = data(d)
+
+print('Unilingual:')
+for i in uni:
+    print(i)
+print('Bilingual:')
+for i in bi:
+    print(i)
+print('Multilingual:')
+for i in multi:
+    print(i)
+    
