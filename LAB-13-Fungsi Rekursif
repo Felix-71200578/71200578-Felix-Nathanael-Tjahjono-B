@@ -1,0 +1,41 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristen Duta Wacana
+'''
+    Bento ingin membuat sebuah program yang dapat mencari kumpulan indeks kata dari sebuah kalimat. Program 
+juga harus dapat mendekteksi kata-kata yang telah digabungkan menjadi satu kalimat. Bantu Bento dalam 
+membuat program tersebut!
+'''
+'''
+Input:
+kalimat = masukan kalimat
+kata = kata yang akan dicari di dalam kalimat
+Output:
+Kata yang dicari tidak ada.
+Kata yang dicari dicari berada di indeks.
+'''
+
+def pencarian(kalimat,kata,l,i1=0,i2=0):
+    if i2 == len(kalimat):
+        return l
+    else:
+        for i in kata:
+            try:
+                if i != kalimat[i2]:
+                    i2 += 1
+                    break
+                i2 += 1
+            except:
+                break
+        if kalimat[i1:i2] == kata:
+            l.append(i1)
+        i1 = i2
+        return pencarian(kalimat,kata,l,i1,i2) 
+
+l = []
+kalimat = str(input('Masukkan kalimat: '))
+kata = str(input('Masukkan kata: '))
+pencarian(kalimat,kata,l)
+if l == []:
+    print('Kata yang dicari tidak ada.')
+else:
+    print('Kata yang dicari ada di indeks',l)
