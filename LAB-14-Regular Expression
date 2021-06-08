@@ -1,0 +1,47 @@
+#Felix Nathanael Tjahjono - 71200578
+#Universitas Kristen Duta Wacana
+'''
+    Anri mmiliki tugas untuk memberikan konsultasi kepada mahasiswa-mahasiswa. Sesuai rencana, mahasiswa yang maju konsultasi terlebih dahulu sesuai nomor induknya. 
+Oleh sebab itu, ia membutuhkan data mengenai nama mahasiswa-amahasiswa beserta nomor induk mereka. Ia lalu mendapatkan data yang diinginkan tetapi datanya berisi 
+format sebagai berikut "BillyPrasetya1020565AlexandraMaxwell1020897BudiBudiman1020374AdelinePutri1020421". Bantulah Anri dengan cara membuat program yang dapat 
+membaca format data tersebut!
+'''
+'''
+Input: 
+teks = BillyPrasetya1020565AlexandraMaxwell1020897BudiBudiman1020374AdelinePutri1020421 atau format data lain yang mirip
+
+Output:
+1) Nama
+2) Nama
+3) Nama
+....
+
+'''
+import re
+
+nama3 = []
+nomor2 = []
+hasil = []
+
+teks = str(input("Masukkan data: "))
+nama1 = re.findall('[a-zA-Z]+',teks)
+
+for i in nama1:
+    nama2 = re.findall('[A-Z][a-z]+',i)
+    nama3.append(' '.join(nama2))
+
+nomor1 = re.findall('[0-9]+',teks)
+nomor2 = sorted(nomor1)
+
+d = 0
+for i in range(len(nama3)):
+    for j in nama3:
+        c = nama3.index(j)
+        if nomor1[c] == nomor2[d]:
+            hasil.append(j)
+            continue
+    d += 1
+
+d = 1
+for i in hasil:
+    print(d,') ',i,' = ',nomor2[hasil.index(i)],sep ='' )
